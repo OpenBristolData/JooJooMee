@@ -1549,12 +1549,8 @@
             Join us to <br />Empower our kids to create, not just consume.
           </h2>
           <div class="contact-actions">
-            <a href="#" onclick="sendEmail('ramin@joojoomee.com')" class="btn"
-              >Contact</a
-            >
-            <a href="#" onclick="sendEmail('invest@joojoomee.com')" class="btn"
-              >Invest</a
-            >
+            <a href="mailto:ramin@joojoomee.com" class="btn">Contact</a>
+            <a href="mailto: invest@joojoomee.com" class="btn">Invest</a>
           </div>
           <p></p>
 
@@ -1764,23 +1760,7 @@
           }
         });
       }
-      function sendEmail(email) {
-        // Try standard mailto first
-        window.location.href = "mailto:" + email;
 
-        // If no response after a short time, show alternative
-        setTimeout(function () {
-          if (
-            confirm(
-              "Unable to open email client. Would you like to copy the email address instead?"
-            )
-          ) {
-            navigator.clipboard.writeText(email).then(function () {
-              alert("Email address copied to clipboard: " + email);
-            });
-          }
-        }, 500);
-      }
       // Create bubbles on page load
       window.addEventListener("load", createBubbles);
     </script>
