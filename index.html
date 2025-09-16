@@ -75,8 +75,8 @@
       }
 
       .hero-img {
-        width: 250px; /* square size */
-        height: 250px; /* keep equal for square */
+        width: 180px; /* square size */
+        height: 180px; /* keep equal for square */
         object-fit: cover; /* crop nicely */
         border-radius: 8px; /* optional: rounded corners */
         margin-bottom: 20px;
@@ -131,8 +131,10 @@
       }
       .mission img {
         width: 100%;
-        transition: transform 0.3s ease;
+        height: auto; /* full image on desktop */
         border-radius: 8px;
+        display: block; /* remove bottom gap */
+        transition: transform 0.3s ease;
       }
       /* products */
       .products .cards {
@@ -152,7 +154,7 @@
         transition: transform 0.2s;
       }
       .product:hover {
-        transform: translateY(-5px);
+        transform: translateY(-30px);
       }
       .product img {
         width: 100%;
@@ -358,7 +360,6 @@
         font-weight: 600;
         display: block;
       }
-      /* slider controls */
       .prev,
       .next {
         position: absolute;
@@ -367,17 +368,24 @@
         background: #ff9800;
         border: none;
         color: #fff;
-        font-size: 20px;
-        padding: 10px 15px;
+        font-size: 22px;
+        width: 45px;
+        height: 45px;
         border-radius: 50%;
         cursor: pointer;
+
+        display: flex; /* flexbox centers content */
+        align-items: center; /* vertical center */
+        justify-content: center; /* horizontal center */
       }
+
       .prev {
         left: 10px;
       }
       .next {
         right: 10px;
       }
+
       .dots {
         position: absolute;
         bottom: 15px; /* inside card at bottom */
@@ -534,8 +542,8 @@
         background: #333;
         color: #fff;
         text-align: center;
-        padding: 20px;
-        font-size: 14px;
+        padding: 60px;
+        font-size: 20px;
       }
       /* Video Popup */
       #videoPopup {
@@ -607,10 +615,14 @@
           padding: 40px 20px;
         }
         .products .product {
-          width: 45%;
+          width: 85%;
         }
         .hero h1 {
           font-size: 28px;
+        }
+        .mission img {
+          height: 250px; /* fixed height for mobile */
+          object-fit: cover; /* fills container, crops sides nicely */
         }
       }
     </style>
@@ -858,7 +870,7 @@
               “Your product provides entertainment, style and engagement without
               the time-wasting elements of video games.”
             </p>
-            <span>Mother of a 6th grader boy (Oakland, Ca) </span>
+            <span>Mother of a 6th grade boy (Oakland, Ca) </span>
           </div>
           <div class="testimonial">
             <p>
@@ -867,13 +879,29 @@
             </p>
             <span>Mother of 5-year-old girl (San Mateo, Ca)</span>
           </div>
+          <div class="testimonial">
+            <p>
+              “Hello!! They arrived (thank goodness because I thought their
+              heads <br />would pop off)”
+            </p>
+            <span>Mother of 4th and 6th grade girls (New Jersey)</span>
+          </div>
+          <div class="testimonial">
+            <p>
+              If you could make it a slow fading night lamp my daughter could
+              finally fall asleep on her own.”
+            </p>
+            <span>Father of 7-year-old girl (San Francisco, Ca)</span>
+          </div>
         </div>
-        <button class="prev">&#10094;</button>
-        <button class="next">&#10095;</button>
+        <button class="prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="next"><i class="fas fa-chevron-right"></i></button>
 
         <!-- Move dots inside slider (inside white card) -->
         <div class="dots">
           <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
           <span class="dot"></span>
           <span class="dot"></span>
         </div>
@@ -984,7 +1012,7 @@
       );
 
       // Auto slide
-      setInterval(() => showSlide(index + 1), 5000);
+      //setInterval(() => showSlide(index + 1), 5000);
     </script>
   </body>
 </html>
