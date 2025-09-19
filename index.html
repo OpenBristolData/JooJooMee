@@ -1,1018 +1,768 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>JooJooMee - Where Imagination and Creativity Thrive</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Registrar Paquete</title>
+    <!-- Bootstrap 4 -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
       rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
+    <!-- FontAwesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
-    <link rel="icon" href="./assets/Images/1024px.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://courier.riocargoexpress.com/assets/images/logo-rio2.png"
+    />
     <style>
-      :root {
-        --blue: #0b6f86;
-        --pink: #fb8a8a; /* mission background */
-        --mint: #c9f3dc; /* solution background */
-        --lav: #f0cfee; /* products background */
+      body {
+        margin: 0;
+        background: #00205d;
+        font-family: Arial, sans-serif;
       }
-      * {
-        box-sizing: border-box;
+
+      /* Navbar container */
+      .navbar-container {
+        display: flex;
+        align-items: center;
+        padding: 10px 0 10px 15px;
+        position: relative;
+        flex-wrap: wrap;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #0034c5;
+        border-radius: 25px 0 0 25px;
+        padding: 10px 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        flex: 1;
+        margin-left: 10px;
+      }
+
+      .logo img {
+        height: 100px;
+        margin-right: 15px;
+      }
+
+      .navbar ul {
+        display: flex;
+        list-style: none;
         margin: 0;
         padding: 0;
-      }
-      body {
-        font-family: "Montserrat", sans-serif;
-        color: #111;
-        background: white;
-        line-height: 1.6;
-      }
-      html {
-        scroll-behavior: smooth;
+        flex-wrap: wrap;
       }
 
-      /* header */
-      header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 20px 50px;
+      .navbar ul li {
+        margin: 0 18px;
+        position: relative;
       }
-      .nav-left a {
-        font-size: 20px;
+
+      .navbar ul li a {
         text-decoration: none;
-        color: #111;
-        font-weight: 700;
-      }
-      nav {
-        display: flex;
-        gap: 30px;
-      }
-      nav a {
-        text-decoration: none;
-        color: #111;
-        font-size: 18px;
-        font-weight: 600;
-      }
-      nav a:hover {
-        color: var(--blue);
-      }
-
-      /* hero */
-      .hero {
-        text-align: center;
-        padding: 50px 20px;
-      }
-      .hero h1 {
-        font-size: 38px;
-        font-weight: 700;
-        color: var(--blue);
-        line-height: 1.4;
-      }
-
-      .hero-img {
-        width: 180px; /* square size */
-        height: 180px; /* keep equal for square */
-        object-fit: cover; /* crop nicely */
-        border-radius: 8px; /* optional: rounded corners */
-        margin-bottom: 20px;
-      }
-      /* bands */
-      section.band {
-        padding: 60px 80px;
-        text-align: center;
-      }
-      .band .section-title {
-        font-size: 30px;
-        font-weight: 700;
-        margin-bottom: 16px;
-      }
-      .band .section-sub {
-        font-size: 25px;
-        max-width: 900px;
-        margin: 0 auto 30px;
-      }
-      .mission {
-        background: var(--pink);
-      }
-      .solution {
-        background: var(--mint);
-      }
-      .solution img {
-        width: 100%;
-        transition: transform 0.3s ease;
-        border-radius: 8px;
-      }
-
-      .solution img:hover {
-        transform: scale(1.1);
-      }
-
-      .products {
-        background: var(--lav);
-      }
-
-      .band img {
-        width: 100%;
-        max-width: 1000px;
-        height: 360px;
-        object-fit: cover;
-        border-radius: 10px;
-        display: block;
-        margin: 0 auto;
-      }
-
-      .mission img:hover {
-        transform: scale(1.1);
-      }
-      .mission img {
-        width: 100%;
-        height: auto; /* full image on desktop */
-        border-radius: 8px;
-        display: block; /* remove bottom gap */
-        transition: transform 0.3s ease;
-      }
-      /* products */
-      .products .cards {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 30px;
-        margin-top: 30px;
-      }
-      .product {
-        background: #fff;
-        border-radius: 14px;
-        padding: 20px;
-        width: 200px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        text-align: center;
-        transition: transform 0.2s;
-      }
-      .product:hover {
-        transform: translateY(-30px);
-      }
-      .product img {
-        width: 100%;
-        height: 120px;
-        object-fit: cover;
-        border-radius: 10px;
-        margin-bottom: 12px;
-      }
-      /* Assign background colors */
-      .product:nth-child(1) {
-        background-color: #f8c777; /* light yellow */
-      }
-
-      .product:nth-child(2) {
-        background-color: #f86777; /* light pink */
-      }
-
-      .product:nth-child(3) {
-        background-color: #79bfee; /* light blue */
-      }
-
-      .product:nth-child(4) {
-        background-color: #c2ce9f; /* light green */
-      }
-
-      .product:nth-child(5) {
-        background-color: #f89a77; /* light orange */
-      }
-      .product h4 {
-        margin: 8px 0;
-        font-size: 20px;
-        font-weight: 700;
-      }
-      .product p {
-        font-size: 20px;
-        color: #000000;
-      }
-      /* ---------- DESIGN SECTION ---------- */
-      .design {
-        background: #fff176;
-        padding: 60px 20px;
-        text-align: center;
-      }
-      .design h3 {
-        font-size: 30px;
-        font-weight: 700;
-        margin-bottom: 10px;
-      }
-      .design p {
-        margin-bottom: 40px;
-        font-size: 25px;
-      }
-      .design-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-      }
-      .design-card {
-        flex: 1 1 280px;
-        max-width: 400px;
-        background: #fff;
-        border-radius: 80px;
-        padding: 20px;
-        text-align: center;
-      }
-      .design-card i {
-        font-size: 40px;
-        margin-bottom: 10px;
-        color: #d65429;
-      }
-      .design-card h4 {
-        font-size: 30px;
-        margin-bottom: 10px;
-        font-weight: 700;
-        color: #d65429;
-      }
-      .design-card img {
-        width: 350px; /* fixed width */
-        height: 300px; /* fixed height */
-        border-radius: 8px;
-        margin-bottom: 12px;
-      }
-      .design-card p {
-        font-size: 25px;
-        font-weight: 600;
-        color: #d65429;
-      }
-      .led {
-        background: #72c7f8;
-      }
-      .audio {
-        background: #90ee90;
-      }
-      .miniapp {
-        background: #f2a6c1;
-      }
-
-      /* ---------- VIDEOS SECTION ---------- */
-      .videos {
-        background: #f2b28f;
-        padding: 60px 20px;
-        text-align: center;
-      }
-      .videos h3 {
-        font-size: 30px;
-        font-weight: 700;
-        margin-bottom: 10px;
-      }
-      .videos p {
-        margin-bottom: 40px;
-        font-size: 25px;
-      }
-      .video-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-      }
-      .video-card {
-        flex: 1 1 300px;
-        max-width: 500px;
-
-        background: #fff;
-        border-radius: 12px;
-        padding: 15px;
-        text-align: center;
-      }
-      video {
-        width: 100%;
-
-        border-radius: 10px;
-        margin-bottom: 10px;
-      }
-      .video-card h4 {
-        font-size: 18px;
-        font-weight: 600;
-      }
-      .video-thumb-container {
-        position: relative;
-        display: inline-block;
-      }
-
-      .play-btn {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 50px;
-        color: white;
-        background: rgba(0, 0, 0, 0.5);
-        border-radius: 50%;
-        width: 80px;
-        height: 80px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-
-      .video-thumb-container:hover .play-btn {
-        background: rgba(0, 0, 0, 0.7);
-        transform: translate(-50%, -50%) scale(1.1);
-      }
-
-      /* ---------- TESTIMONIALS SECTION ---------- */
-      .testimonials {
-        background: #72c7f8;
-        padding: 80px 20px;
-        text-align: center;
-        position: relative;
-      }
-      .testimonials h3 {
-        font-size: 30px;
-        font-weight: 700;
-        margin-bottom: 30px;
-      }
-      .slider {
-        max-width: 900px;
-        margin: 0 auto;
-        position: relative;
-        overflow: hidden;
-      }
-      .slides {
-        display: flex;
-        transition: transform 0.5s ease-in-out;
-      }
-      .testimonial {
-        min-width: 100%;
-        padding: 50px;
-        background: #fff;
-        border-radius: 12px;
-        font-size: 20px;
-        box-sizing: border-box;
-      }
-      .testimonial p {
-        margin-bottom: 20px;
-        font-style: italic;
-        font-size: 20px;
-      }
-      .testimonial span {
-        font-weight: 600;
-        display: block;
-      }
-      .prev,
-      .next {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: #ff9800;
-        border: none;
         color: #fff;
-        font-size: 22px;
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
-        cursor: pointer;
-
-        display: flex; /* flexbox centers content */
-        align-items: center; /* vertical center */
-        justify-content: center; /* horizontal center */
+        font-weight: 500;
+        transition: color 0.3s;
+        font-size: 15px;
       }
 
-      .prev {
-        left: 10px;
-      }
-      .next {
-        right: 10px;
+      .navbar ul li a:hover {
+        color: #ffd700;
       }
 
-      .dots {
+      .nav-icons {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .nav-icons a {
+        color: white;
+        font-size: 18px;
+        margin-left: 15px;
+        text-decoration: none;
+      }
+
+      .nav-icons a:hover {
+        color: #ffd700;
+      }
+      .navbar ul li ul.dropdown-menu {
+        display: none;
         position: absolute;
-        bottom: 15px; /* inside card at bottom */
-        left: 50%;
-        transform: translateX(-50%);
+        top: 100%;
+        left: 0;
+        background: #0034c5;
+        border-radius: 10px;
+        padding: 8px 0;
+        list-style: none;
+        min-width: 200px;
+        z-index: 1000;
+      }
+
+      .navbar ul li ul.dropdown-menu li {
         margin: 0;
       }
 
-      .dot {
-        height: 14px;
-        width: 14px;
-        margin: 0 5px;
-        border-radius: 50%;
-        display: inline-block;
-        cursor: pointer;
-        border: 2px solid #ff9800; /* orange border for inactive */
-        background-color: #fff; /* white inside */
-        box-sizing: border-box;
-        transition: all 0.3s ease;
-      }
-
-      .dot.active {
-        background-color: #ff9800; /* solid orange for active */
-        border: none; /* remove border for active */
-      }
-      /* Call to Action */
-      .cta-section {
-        background: #ffb74d; /* orange background */
-        text-align: center;
-        padding: 80px 20px;
-      }
-      .cta-section h3 {
-        font-size: 25px;
-        font-weight: 400;
-        margin-bottom: 20px;
-        color: #0b2d57;
-      }
-      .cta-section h2 {
-        font-size: 40px;
-        font-weight: 700;
-        margin-bottom: 20px;
-        color: #0b2d57;
-        line-height: 1.4;
-      }
-      .cta-section p {
-        font-size: 25px;
-        margin-bottom: 30px;
-        color: #0b2d57;
-      }
-      .cta-links {
-        display: flex;
-        justify-content: center;
-        gap: 80px;
-        flex-wrap: wrap;
-      }
-      .cta-links a {
-        font-size: 25px;
-        font-weight: 700;
-        color: #0088aa;
-        text-decoration: none;
-      }
-      .cta-links a:hover {
-        text-decoration: underline;
-      }
-      #scrollTopBtn {
-        position: fixed;
-        bottom: 40px;
-        right: 40px;
-        z-index: 1000;
-        font-size: 24px; /* icon size */
-        background-color: #ff9800;
-        color: white;
-        border: none;
-        padding: 12px 16px;
-        border-radius: 50%;
-        cursor: pointer;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        display: none; /* Hidden by default */
-        transition: all 0.3s ease;
-      }
-
-      #scrollTopBtn:hover {
-        background-color: #e57c00;
-        transform: translateY(-3px);
-      }
-
-      #scrollTopBtn:hover {
-        background-color: #e57c00;
-        transform: translateY(-3px);
-      }
-      #floatingMenuBtn {
-        position: fixed;
-        bottom: 100px; /* above scroll-top button */
-        right: 40px;
-        z-index: 1000;
-        cursor: pointer;
-        font-size: 24px;
-        background-color: #0b6f86;
+      .navbar ul li ul.dropdown-menu li a {
+        display: block;
+        padding: 8px 15px;
         color: #fff;
-        padding: 15px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        transition: all 0.3s ease;
+        font-size: 14px;
+        white-space: nowrap;
       }
 
-      #floatingMenuBtn:hover {
-        background-color: #0088aa;
-        transform: translateY(-2px);
+      .navbar ul li ul.dropdown-menu li a:hover {
+        background: #002a99;
+        color: #ffd700;
       }
 
-      /* Hidden menu initially */
-      #floatingMenuList {
-        position: absolute;
-        bottom: 70px; /* above button */
-        right: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(20px);
-        transition: all 0.3s ease;
-      }
-
-      /* Show menu when active */
-      #floatingMenuBtn.active #floatingMenuList {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-      }
-
-      /* Menu links */
-      #floatingMenuList a {
-        background-color: #0b6f86;
-        color: white;
-        padding: 10px 15px;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: 600;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        transition: all 0.3s ease;
-      }
-
-      #floatingMenuList a:hover {
-        background-color: #0088aa;
-        transform: translateY(-2px);
-      }
-
-      /* Footer */
-      footer {
-        background: #333;
-        color: #fff;
-        text-align: center;
-        padding: 60px;
-        font-size: 20px;
-      }
-      /* Video Popup */
-      #videoPopup {
-        display: none;
-        position: fixed;
-        z-index: 2000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.8);
-
-        justify-content: center;
-        align-items: center;
-        padding: 20px; /* small padding for small screens */
-        box-sizing: border-box;
-      }
-
-      #videoPopupContent {
-        position: relative;
-        width: 100%;
-        max-width: 1000px; /* limit max width */
-        aspect-ratio: 16 / 9; /* maintain 16:9 ratio */
-        background: #000;
-        border-radius: 10px;
-        overflow: hidden;
-      }
-
-      /* Video styling */
-      #videoPopupContent video {
-        width: 100%;
-        height: 100%;
-        object-fit: contain; /* keeps video fully visible */
+      /* Show dropdown on hover */
+      .navbar ul li:hover > ul.dropdown-menu {
         display: block;
       }
 
-      #videoClose {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        font-size: 30px;
+      .profile {
+        background: #007bff;
+        border-radius: 50%;
+        padding: 6px 6px;
+      }
+      .nav-icons img {
+        width: 30px;
+      }
+      /* Form Card */
+      .card-custom {
+        background-color: #0034c5;
+        border-radius: 25px;
+        padding: 25px;
         color: white;
-        cursor: pointer;
-        font-weight: bold;
-        z-index: 10;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+        margin-bottom: 20px;
+        font-weight: 600;
       }
-      .video-thumb {
+
+      .card-custom input,
+      .card-custom textarea {
+        background-color: #6c7ecb;
+        border: none;
+        border-radius: 15px;
+        padding: 12px;
+        color: white;
         width: 100%;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: transform 0.3s ease;
       }
-      .video-thumb:hover {
-        transform: scale(1.05);
+
+      .card-custom input::placeholder,
+      .card-custom textarea::placeholder {
+        color: #d9ddf5;
+      }
+
+      /* Upload box */
+      .upload-box {
+        background-color: #7b8ee0;
+        border: 2px dashed #bfc7f3;
+        border-radius: 12px;
+        padding: 40px 15px;
+        text-align: center;
+        color: #e5e8ff;
+        font-size: 14px;
+        margin-bottom: 20px;
+        transition: 0.3s;
+        cursor: pointer;
+      }
+      .upload-box:hover {
+        background-color: #6a7ad8;
+      }
+
+      /* Toggle boxes */
+      .toggle-box {
+        display: flex;
+        align-items: center;
+        background: #6c7ecb;
+        border-radius: 20px;
+        padding: 10px 16px;
+        color: white;
+        margin: 5px 0;
+        cursor: pointer;
+        font-size: 15px;
+        transition: 0.2s;
+      }
+
+      .toggle-box input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        margin-right: 10px;
+        cursor: pointer;
+        accent-color: #ff9900; /* checked orange */
+      }
+
+      .toggle-box input[type="radio"] {
+        width: 18px;
+        height: 18px;
+        margin-right: 10px;
+        cursor: pointer;
+        accent-color: #ff9900; /* checked orange */
+      }
+
+      .toggle-box.active {
+        background: #ffcc00;
+        color: black;
+        font-weight: bold;
+      }
+
+      /* Save button */
+      .btn-save {
+        background-color: red;
+        color: white;
+        font-weight: bold;
+        border-radius: 10px;
+        padding: 5px 50px;
+        border: none;
+        transition: 0.3s;
+      }
+      .btn-save:hover {
+        background-color: #cc0000;
+      }
+
+      /* Casillero */
+
+      .mi-casillero {
+        background-color: #0084f8;
+        border-radius: 50px;
+        padding: 20px;
+        color: white;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+        margin-bottom: 20px;
+      }
+
+      .casillero-box {
+        background-color: white;
+        border-radius: 0px 0px 40px 40px;
+        padding: 15px;
+        color: black;
+      }
+
+      .field {
+        padding: 5px 0;
+      }
+
+      .item-main {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      .item-sub {
+        font-size: 13px;
+        color: #333;
+        margin-top: 3px;
+      }
+
+      .casillero-box hr {
+        border: none;
+        height: 2px;
+        border-top: 1px solid #007bff;
+        background-color: #007bff; /* blue separator */
+        margin: 8px 0;
+      }
+
+      .copy-btn {
+        background-color: #ffcc00;
+        border: none;
+        color: white;
+        width: 28px;
+        height: 28px;
+        border-radius: 5px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .copy-btn i {
+        font-size: 14px;
+      }
+      .dropdown-card {
+        position: absolute;
+        top: 70px; /* adjust below navbar */
+        right: 20px;
+        background: #ffffff;
+        color: #000;
+        width: 280px;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+        padding: 15px;
+        display: none;
+        z-index: 2000;
+        animation: fadeInUp 0.3s ease;
+      }
+
+      .dropdown-card h6 {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .dropdown-card hr {
+        margin: 8px 0;
+      }
+
+      .dropdown-card a {
+        display: block;
+        color: #0034c5;
+        font-weight: 500;
+        padding: 5px 0;
+        text-decoration: none;
+      }
+
+      .dropdown-card a:hover {
+        color: #ff9900;
+      }
+
+      /* Animation */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(15px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Custom alert style */
+      .custom-alert {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 9999;
+        min-width: 300px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        border: none;
+        border-left: 4px solid #28a745;
+        opacity: 0;
+        transform: translateX(100%);
+        transition: opacity 0.5s, transform 0.5s;
+      }
+
+      .custom-alert.show {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .alert-success {
+        background-color: #d4edda;
+        color: #155724;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 992px) {
+        .navbar {
+          flex-wrap: wrap;
+          border-radius: 20px;
+          padding: 10px;
+        }
+        .navbar ul {
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+          margin-top: 10px;
+        }
+        .nav-icons {
+          margin-top: 10px;
+          width: 100%;
+          justify-content: flex-start;
+        }
       }
 
       @media (max-width: 768px) {
-        header {
+        .logo img {
+          height: 50px;
+        }
+        .navbar ul li {
+          margin: 6px 0;
+        }
+        .nav-icons a {
+          font-size: 16px;
+          margin-left: 10px;
+        }
+        .custom-alert {
+          left: 20px;
+          right: 20px;
+          min-width: auto;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .navbar-container {
           flex-direction: column;
-          gap: 10px;
-          padding: 20px;
+          padding: 10px;
         }
-        nav {
-          flex-wrap: wrap;
-          justify-content: center;
-          gap: 15px;
+        .navbar {
+          margin-left: 0;
+          border-radius: 20px;
         }
-        .band {
-          padding: 40px 20px;
-        }
-        .products .product {
-          width: 85%;
-        }
-        .hero h1 {
-          font-size: 28px;
-        }
-        .mission img {
-          height: 250px; /* fixed height for mobile */
-          object-fit: cover; /* fills container, crops sides nicely */
+        .red-shape {
+          display: none;
         }
       }
     </style>
   </head>
   <body>
-    <!-- HEADER -->
-    <header>
-      <div class="nav-left">
-        <a href="https://joojoomee.com:12540/"
-          ><i class="fas fa-home"></i> Home</a
-        >
+    <!-- Custom Alert Container -->
+    <div
+      id="alertContainer"
+      class="custom-alert alert alert-success"
+      role="alert"
+      style="display: none"
+    >
+      <div class="d-flex align-items-center">
+        <i class="fas fa-check-circle mr-2"></i>
+        <span id="alertMessage"></span>
       </div>
-      <nav>
-        <a
-          href="https://mail.google.com/mail/?view=cm&fs=1&to=ramin@joojoomee.com"
-          ><i class="fas fa-envelope"></i> Contact</a
-        >
-        <a
-          href="https://mail.google.com/mail/?view=cm&fs=1&to=invest@joojoomee.com"
-          ><i class="fas fa-chart-line"></i> Invest</a
-        >
-        <a href="https://calendar.app.google/6WEX6TFinkaQ2BD1A"
-          ><i class="fas fa-calendar-alt"></i> Schedule</a
-        >
+    </div>
+
+    <!-- Navbar -->
+    <header class="navbar-container">
+      <div class="logo">
+        <a href="#">
+          <img src="./src/img/logo.png" alt="Rio Cargo Express Logo"
+        /></a>
+      </div>
+      <nav class="navbar">
+        <ul>
+          <!-- Tablero with dropdown -->
+          <li class="dropdown">
+            <a href="#">Tablero <i class="fas fa-caret-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Registrar paquete</a></li>
+              <li><a href="#">Estado de paquetes</a></li>
+              <li><a href="#">Asociados</a></li>
+              <li><a href="#">Cupos</a></li>
+            </ul>
+          </li>
+
+          <!-- Liquidación with dropdown -->
+          <li class="dropdown">
+            <a href="#">Liquidación <i class="fas fa-caret-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Liquidaciones Pendientes</a></li>
+              <li><a href="#">Liquidaciones Canceladas</a></li>
+              <li><a href="#">Cuentas Bancarias</a></li>
+            </ul>
+          </li>
+
+          <!-- Programas de Recompensa (normal) -->
+          <li><a href="#">Programas de Recompensa</a></li>
+
+          <!-- Historial de Tracking (normal) -->
+          <li><a href="#">Historial de Tracking</a></li>
+        </ul>
+
+        <!-- Nav icons -->
+        <div class="nav-icons">
+          <a href="javascript:void(0)" id="alertBtn"
+            ><i class="fas fa-exclamation"></i
+          ></a>
+          <a href="javascript:void(0)" id="bellBtn"
+            ><i class="fas fa-bell"></i
+          ></a>
+          <a href="javascript:void(0)" id="mailBtn"
+            ><i class="fas fa-envelope"></i
+          ></a>
+          <a href="javascript:void(0)" id="userBtn" class="profile"
+            ><img
+              src="https://courier.riocargoexpress.com/assets/images/users/user.png"
+              alt="profileLogo"
+          /></a>
+        </div>
       </nav>
     </header>
 
-    <!-- HERO -->
-    <div class="hero">
-      <img
-        src="./assets/Images/JJM_Logo.png"
-        alt="Hero Image"
-        class="hero-img"
-      />
-      <h1>Where Imagination<br />and<br />Creativity Thrive.</h1>
+    <!-- Dropdown cards - moved outside navbar -->
+    <div class="dropdown-card" id="alertCard">
+      <h6>Alertas</h6>
+      <hr />
+      <p>Mensaje de alerta de ejemplo.</p>
     </div>
 
-    <!-- MISSION -->
-    <section class="band mission" id="mission">
-      <div class="section-title">Mission</div>
-      <div class="section-sub">
-        To redefine passive screen time consumption into<br />
-        a meaningful, creative, and productive experience.
-      </div>
-      <img src="./assets/Images/Image2.jpg" alt="Mission Image" />
-    </section>
+    <div class="dropdown-card" id="bellCard">
+      <h6>Notificaciones</h6>
+      <hr />
+      <p>Tu paquete está en camino 🚚</p>
+      <p>Nuevo mensaje recibido 📩</p>
+    </div>
 
-    <!-- SOLUTION -->
-    <section class="band solution" id="solution">
-      <div class="section-title">Solution</div>
-      <div class="section-sub">
-        JooJooMee is a <u>No-Coding</u> online platform that lets kids design
-        and configure their own creations using simple drag-and-drop modules and
-        then bring them to life on many of our custom wearable devices.
-      </div>
-      <img src="./assets/Images/Image1.jpg" alt="Solution Image" />
-    </section>
+    <div class="dropdown-card" id="mailCard">
+      <h6>Tienes 0 paquetes en retención</h6>
+      <hr />
+      <p>No hay paquetes retenidos.</p>
+    </div>
 
-    <!-- PRODUCTS -->
-    <section class="band products" id="products">
-      <div class="section-title">Products</div>
-      <div class="section-sub">
-        JooJooMee products are fully cross-compatible, allowing user-designed
-        applications to run smoothly on any of our devices.
-      </div>
-
-      <div class="cards">
-        <div class="product">
-          <img src="./assets/Images/Core.png" alt="Core" />
-          <h4>Core</h4>
-          <p>The central hub for all creations</p>
-        </div>
-        <div class="product">
-          <img src="./assets/Images/Bracelet.png" alt="Bracelet" />
-          <h4>Bracelet</h4>
-          <p>Wearable tech jewelry</p>
-        </div>
-        <div class="product">
-          <img
-            src="./assets/Images/watch.png"
-            alt="Watch"
-            style="transform: rotate(-30deg)"
-          />
-
-          <h4>Watch</h4>
-          <p>Customizable smartwatch for kids</p>
-        </div>
-        <div class="product">
-          <img src="./assets/Images/jBrick.png" alt="jBrick" />
-          <h4>jBrick</h4>
-          <p>Modular building blocks with tech</p>
-        </div>
-        <div class="product">
-          <img src="./assets/Images/jTile.png" alt="jTile" />
-          <h4>jTile</h4>
-          <p>Interactive tiles for creative play</p>
-        </div>
-      </div>
-    </section>
-    <!-- DESIGN SECTION -->
-    <section class="design" id="design">
-      <h3>Design</h3>
-
-      <p>
-        The only fully configurable platform that lets users design and build
-        their own apps.
-      </p>
-      <div class="design-container">
-        <div class="design-card led">
-          <i class="fas fa-sun"></i>
-          <h4>LED Design <br />Page</h4>
-          <img src="./assets/Images/ImageA.png" alt="LED Design" />
-          <p>
-            Design any lighting pattern with ease using our patented graphical
-            interface.
-          </p>
-        </div>
-        <div class="design-card audio">
-          <i class="fas fa-music"></i>
-          <h4>
-            Audio Designbr <br />
-            Page
-          </h4>
-          <img src="./assets/Images/ImageB.png" alt="Audio Design" />
-          <p>
-            Choose from a wide range of sound effects or create spoken words
-            with Text-to-Speech.
-          </p>
-        </div>
-        <div class="design-card miniapp">
-          <i class="fas fa-cog"></i>
-          <h4>
-            MiniApp Design <br />
-            Page
-          </h4>
-          <img src="./assets/Images/ImageC.png" alt="MiniApp Design" />
-          <p>
-            Build complex designs with pre-configured modules, combining
-            Lighting, Sound, Motion and much more.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- VIDEOS SECTION -->
-    <section class="videos" id="videos">
-      <h3>Videos</h3>
-      <p>
-        The only fully configurable platform that lets users design and build
-        their own apps.
-      </p>
-      <div class="video-container">
-        <div class="video-card" data-video="./assets/Videos/Video BoxA.mp4">
-          <div class="video-thumb-container">
-            <img
-              src="./assets/Videos/VidA.png"
-              alt="Lighting Designs Thumbnail"
-              class="video-thumb"
-            />
-            <div class="play-btn"><i class="fas fa-play"></i></div>
-          </div>
-          <h4>Lighting Designs</h4>
-        </div>
-        <div class="video-card" data-video="./assets/Videos/Video BoxB.mp4">
-          <div class="video-thumb-container">
-            <img
-              src="./assets/Videos/VidB.png"
-              alt="Custom Designs Thumbnail"
-              class="video-thumb"
-            />
-            <div class="play-btn"><i class="fas fa-play"></i></div>
-          </div>
-          <h4>Custom Designs</h4>
-        </div>
-        <div class="video-card" data-video="./assets/Videos/Video BoxC.mp4">
-          <div class="video-thumb-container">
-            <img
-              src="./assets/Videos/VidC.png"
-              alt="MiniApp Designs Thumbnail"
-              class="video-thumb"
-            />
-            <div class="play-btn"><i class="fas fa-play"></i></div>
-          </div>
-          <h4>MiniApp Designs</h4>
-        </div>
-      </div>
-    </section>
-
-    <!-- Video Popup -->
-    <div id="videoPopup">
-      <div id="videoPopupContent">
-        <span id="videoClose">&times;</span>
-        <video id="popupVideo" controls></video>
+    <div class="dropdown-card" id="userCard">
+      <h6>Casillero</h6>
+      <p><strong>216258</strong></p>
+      <p>María Teresa Silva Pinoargote</p>
+      <p>tetesilva0908@gmail.com</p>
+      <hr />
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: 5px;
+        "
+      >
+        <a href="./index2.html"><i class="fas fa-user"></i> Mi Perfil</a>
+        <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
       </div>
     </div>
 
+    <!-- Heading outside container -->
+    <h2 class="text-center text-white mt-5 font-weight-bold pb-3">
+      Registrar paquete
+    </h2>
+
+    <div class="container mt-3">
+      <div class="row">
+        <!-- Form Section -->
+        <div class="col-lg-8 col-md-7">
+          <div class="card-custom">
+            <form>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="tracking">Número de tracking</label>
+                  <input type="text" id="tracking" class="form-control" />
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="valor">Valor de la compra</label>
+                  <input type="text" id="valor" class="form-control" />
+                </div>
+              </div>
+
+              <label>Por favor suba su factura de compra</label>
+              <div
+                class="upload-box"
+                id="uploadBox"
+                onclick="document.getElementById('fileInput').click()"
+              >
+                Suelte los archivos aquí o haga click para cargar.
+              </div>
+              <input
+                type="file"
+                id="fileInput"
+                multiple
+                style="display: none"
+              />
+
+              <div class="form-row mt-3">
+                <div class="form-group col-md-4">
+                  <label>Gestión de pedido*</label><br />
+                  <label class="toggle-box">
+                    <input type="radio" name="pedido" /> Agrupar compras
+                  </label>
+                  <label class="toggle-box">
+                    <input type="radio" name="pedido" /> Embarque Inmediato
+                  </label>
+                </div>
+                <div class="form-group col-md-4">
+                  <label>Detalles del empaque</label><br />
+                  <label class="toggle-box">
+                    <input type="checkbox" /> Más protección
+                  </label>
+                  <label class="toggle-box">
+                    <input type="checkbox" /> Revisión detallada
+                  </label>
+                </div>
+                <div class="form-group col-md-4">
+                  <label>Categoría</label><br />
+                  <label class="toggle-box">
+                    <input type="checkbox" /> Categoría B
+                  </label>
+                  <label class="toggle-box">
+                    <input type="checkbox" /> Categoría C
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="nota">Nota</label>
+                <input type="text" id="nota" class="form-control" />
+              </div>
+
+              <div class="form-group">
+                <label for="cupon">Cupón de descuento</label>
+                <input type="text" id="cupon" class="form-control" />
+              </div>
+
+              <div class="text-center">
+                <button type="submit" class="btn btn-save">Guardar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- Mi Casillero -->
+        <div class="col-lg-4 col-md-5">
+          <div class="mi-casillero">
+            <h5 class="mb-3 text-center font-weight-bold">Mi casillero</h5>
+
+            <div class="casillero-box">
+              <div class="field">
+                <div class="item-main">
+                  Nombre
+                  <button class="copy-btn"><i class="fas fa-copy"></i></button>
+                </div>
+                <div class="item-sub">
+                  571017 - Roxana Maria Castillo Ottati
+                </div>
+              </div>
+              <hr />
+
+              <div class="field">
+                <div class="item-main">
+                  Dirección
+                  <button class="copy-btn"><i class="fas fa-copy"></i></button>
+                </div>
+                <div class="item-sub">12992 NW 42 Ave Ste 126</div>
+              </div>
+              <hr />
+
+              <div class="field">
+                <div class="item-main">
+                  Ciudad
+                  <button class="copy-btn"><i class="fas fa-copy"></i></button>
+                </div>
+                <div class="item-sub">OPA LOCKA</div>
+              </div>
+              <hr />
+
+              <div class="field">
+                <div class="item-main">
+                  Estado
+                  <button class="copy-btn"><i class="fas fa-copy"></i></button>
+                </div>
+                <div class="item-sub">FLORIDA</div>
+              </div>
+              <hr />
+
+              <div class="field">
+                <div class="item-main">
+                  Código Postal
+                  <button class="copy-btn"><i class="fas fa-copy"></i></button>
+                </div>
+                <div class="item-sub">33054-4403</div>
+              </div>
+              <hr />
+
+              <div class="field">
+                <div class="item-main">
+                  Teléfono
+                  <button class="copy-btn"><i class="fas fa-copy"></i></button>
+                </div>
+                <div class="item-sub">305 967 8269</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script>
-      const videoCards = document.querySelectorAll(".video-card");
-      const videoPopup = document.getElementById("videoPopup");
-      const popupVideo = document.getElementById("popupVideo");
-      const videoClose = document.getElementById("videoClose");
+      document.addEventListener("DOMContentLoaded", function () {
+        const cards = {
+          alertBtn: "alertCard",
+          bellBtn: "bellCard",
+          mailBtn: "mailCard",
+          userBtn: "userCard",
+        };
 
-      videoCards.forEach((card) => {
-        card.addEventListener("click", () => {
-          const videoSrc = card.getAttribute("data-video");
-          popupVideo.src = videoSrc;
-          videoPopup.style.display = "flex";
-          popupVideo.play();
+        // Function to show custom alert
+        function showAlert(message) {
+          const alertContainer = document.getElementById("alertContainer");
+          const alertMessage = document.getElementById("alertMessage");
+
+          alertMessage.textContent = message;
+          alertContainer.style.display = "block";
+
+          // Trigger reflow to enable animation
+          void alertContainer.offsetWidth;
+
+          alertContainer.classList.add("show");
+
+          // Auto hide after 3 seconds
+          setTimeout(() => {
+            alertContainer.classList.remove("show");
+            setTimeout(() => {
+              alertContainer.style.display = "none";
+            }, 500);
+          }, 3000);
+        }
+
+        // Function to copy text to clipboard
+        function copyToClipboard(text) {
+          navigator.clipboard
+            .writeText(text)
+            .then(() => {
+              showAlert("Texto copiado: " + text);
+            })
+            .catch((err) => {
+              console.error("Error al copiar: ", err);
+              showAlert("Error al copiar el texto");
+            });
+        }
+
+        function toggleCard(cardId) {
+          // Close other cards
+          document.querySelectorAll(".dropdown-card").forEach((card) => {
+            if (card.id !== cardId) card.style.display = "none";
+          });
+          // Toggle the clicked card
+          const card = document.getElementById(cardId);
+          card.style.display =
+            card.style.display === "block" ? "none" : "block";
+        }
+
+        Object.keys(cards).forEach((btnId) => {
+          document.getElementById(btnId).addEventListener("click", (e) => {
+            e.stopPropagation(); // Stop event from bubbling to document
+            toggleCard(cards[btnId]);
+          });
         });
-      });
 
-      videoClose.addEventListener("click", () => {
-        popupVideo.pause();
-        popupVideo.currentTime = 0;
-        videoPopup.style.display = "none";
-        popupVideo.src = "";
-      });
+        // Close when clicking outside
+        document.addEventListener("click", function (e) {
+          document.querySelectorAll(".dropdown-card").forEach((card) => {
+            card.style.display = "none";
+          });
+        });
 
-      // Close popup if clicked outside video
-      videoPopup.addEventListener("click", (e) => {
-        if (e.target === videoPopup) {
-          popupVideo.pause();
-          popupVideo.currentTime = 0;
-          videoPopup.style.display = "none";
-          popupVideo.src = "";
-        }
-      });
-    </script>
+        // Prevent closing when clicking inside the card
+        document.querySelectorAll(".dropdown-card").forEach((card) => {
+          card.addEventListener("click", (e) => e.stopPropagation());
+        });
 
-    <section class="testimonials" id="testimonials">
-      <h3>Testimonials</h3>
-      <div class="slider">
-        <div class="slides">
-          <div class="testimonial">
-            <p>
-              “Your alpha tester is loving her new gadget and seems to have made
-              quite an impression in school. Many girls now want a bracelet just
-              like hers!! So, if early market testing is any indication, you
-              have a success on your hands.”
-            </p>
-            <span>Father of an 8th grade girl (San Francisco, CA)</span>
-          </div>
-          <div class="testimonial">
-            <p>
-              “Your product provides entertainment, style and engagement without
-              the time-wasting elements of video games.”
-            </p>
-            <span>Mother of a 6th grade boy (Oakland, Ca) </span>
-          </div>
-          <div class="testimonial">
-            <p>
-              “She is happy clicking through the current Apps and wears it in
-              bed.”
-            </p>
-            <span>Mother of 5-year-old girl (San Mateo, Ca)</span>
-          </div>
-          <div class="testimonial">
-            <p>
-              “Hello!! They arrived (thank goodness because I thought their
-              heads <br />would pop off)”
-            </p>
-            <span>Mother of 4th and 6th grade girls (New Jersey)</span>
-          </div>
-          <div class="testimonial">
-            <p>
-              If you could make it a slow fading night lamp my daughter could
-              finally fall asleep on her own.”
-            </p>
-            <span>Father of 7-year-old girl (San Francisco, Ca)</span>
-          </div>
-        </div>
-        <button class="prev"><i class="fas fa-chevron-left"></i></button>
-        <button class="next"><i class="fas fa-chevron-right"></i></button>
-
-        <!-- Move dots inside slider (inside white card) -->
-        <div class="dots">
-          <span class="dot active"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta-section">
-      <h3>Join us to:</h3>
-      <h2>Empower our kids to create,<br />not just consume.</h2>
-      <p>Click below to connect with us:</p>
-      <div class="cta-links">
-        <a
-          href="https://mail.google.com/mail/?view=cm&fs=1&to=ramin@joojoomee.com"
-          >Contact</a
-        >
-        <a
-          href="https://mail.google.com/mail/?view=cm&fs=1&to=invest@joojoomee.com"
-          >Invest</a
-        >
-        <a href="https://calendar.app.google/6WEX6TFinkaQ2BD1A">Schedule</a>
-      </div>
-    </section>
-    <!-- Floating Menu Button -->
-    <div id="floatingMenuBtn">
-      <i class="fas fa-bars"></i>
-      <div id="floatingMenuList">
-        <a href="#mission">Mission</a>
-        <a href="#solution">Solution</a>
-        <a href="#products">Products</a>
-        <a href="#design">Design</a>
-        <a href="#videos">Videos</a>
-        <a href="#testimonials">Testimonials</a>
-      </div>
-    </div>
-    <script>
-      const floatingBtn = document.getElementById("floatingMenuBtn");
-
-      // Toggle menu on button click
-      floatingBtn.addEventListener("click", (e) => {
-        e.stopPropagation(); // prevent event from bubbling to document
-        floatingBtn.classList.toggle("active");
-      });
-
-      // Close menu if clicked outside
-      document.addEventListener("click", (e) => {
-        if (!floatingBtn.contains(e.target)) {
-          floatingBtn.classList.remove("active");
-        }
-      });
-    </script>
-
-    <!-- Scroll to Top Button -->
-    <button id="scrollTopBtn" title="Go to top">
-      <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <script>
-      //Get the button
-      const scrollTopBtn = document.getElementById("scrollTopBtn");
-
-      // Show button when user scrolls down 200px
-      window.onscroll = function () {
-        if (
-          document.body.scrollTop > 200 ||
-          document.documentElement.scrollTop > 200
-        ) {
-          scrollTopBtn.style.display = "block";
-        } else {
-          scrollTopBtn.style.display = "none";
-        }
-      };
-
-      // Scroll to top when clicked
-      scrollTopBtn.addEventListener("click", function () {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
+        // Add copy functionality to all copy buttons
+        document.querySelectorAll(".copy-btn").forEach((button) => {
+          button.addEventListener("click", function (e) {
+            e.stopPropagation(); // Prevent closing dropdowns if any are open
+            const textToCopy = this.closest(".field")
+              .querySelector(".item-sub")
+              .textContent.trim();
+            copyToClipboard(textToCopy);
+          });
         });
       });
     </script>
 
-    <!-- FOOTER -->
-    <footer>JooJooMee Inc., All rights reserved 2025</footer>
-    <script>
-      // Testimonial Slider Script
-      const slides = document.querySelector(".slides");
-      const dots = document.querySelectorAll(".dot");
-      let index = 0;
-
-      function showSlide(i) {
-        index = i;
-        if (index >= dots.length) index = 0;
-        if (index < 0) index = dots.length - 1;
-        slides.style.transform = `translateX(${-index * 100}%)`;
-        dots.forEach((dot) => dot.classList.remove("active"));
-        dots[index].classList.add("active");
-      }
-
-      document
-        .querySelector(".next")
-        .addEventListener("click", () => showSlide(index + 1));
-      document
-        .querySelector(".prev")
-        .addEventListener("click", () => showSlide(index - 1));
-      dots.forEach((dot, i) =>
-        dot.addEventListener("click", () => showSlide(i))
-      );
-
-      // Auto slide
-      //setInterval(() => showSlide(index + 1), 5000);
-    </script>
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
